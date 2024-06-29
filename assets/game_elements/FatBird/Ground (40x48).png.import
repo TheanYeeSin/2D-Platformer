@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsi5h50wkv85g"
-path="res://.godot/imported/Jump (32x32).png-91bf01789c567d31f5c28cd22911709b.ctex"
+uid="uid://bdcvm7dsj1uje"
+path="res://.godot/imported/Ground (40x48).png-55a86149973597773797bf241f995c5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Jump (32x32).png"
-dest_files=["res://.godot/imported/Jump (32x32).png-91bf01789c567d31f5c28cd22911709b.ctex"]
+source_file="res://assets/game_elements/FatBird/Ground (40x48).png"
+dest_files=["res://.godot/imported/Ground (40x48).png-55a86149973597773797bf241f995c5c.ctex"]
 
 [params]
 

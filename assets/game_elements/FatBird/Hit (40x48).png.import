@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baxsx3tqfyjj3"
-path="res://.godot/imported/End (Idle).png-387af11c9537f00eab43f14e3ccc1c3d.ctex"
+uid="uid://bfq2bouj3sqr7"
+path="res://.godot/imported/Hit (40x48).png-a420a19e39732556bcfadf7fabb2d8ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://End (Idle).png"
-dest_files=["res://.godot/imported/End (Idle).png-387af11c9537f00eab43f14e3ccc1c3d.ctex"]
+source_file="res://assets/game_elements/FatBird/Hit (40x48).png"
+dest_files=["res://.godot/imported/Hit (40x48).png-a420a19e39732556bcfadf7fabb2d8ec.ctex"]
 
 [params]
 

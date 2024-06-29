@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hbex616enni"
-path="res://.godot/imported/Apple.png-6cd13b76053e3795414d24077e6ea26f.ctex"
+uid="uid://5myf2nndf6ur"
+path="res://.godot/imported/End (Pressed) (64x64).png-f3cfaacabfffea27bb8e20e8b3bf7759.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Apple.png"
-dest_files=["res://.godot/imported/Apple.png-6cd13b76053e3795414d24077e6ea26f.ctex"]
+source_file="res://assets/game_elements/End (Pressed) (64x64).png"
+dest_files=["res://.godot/imported/End (Pressed) (64x64).png-f3cfaacabfffea27bb8e20e8b3bf7759.ctex"]
 
 [params]
 

@@ -1,14 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyl72u10uk0ne"]
+[gd_scene load_steps=14 format=3 uid="uid://dyl72u10uk0ne"]
 
-[ext_resource type="Texture2D" uid="uid://datpbxsleh3sj" path="res://Blue.png" id="1_mrisx"]
-[ext_resource type="Texture2D" uid="uid://cy3w42kv5spv4" path="res://Terrain (16x16).png" id="2_ihvr4"]
-[ext_resource type="PackedScene" uid="uid://2dfbfx6ljex4" path="res://scenes/main_character.tscn" id="3_kxfkc"]
-[ext_resource type="PackedScene" uid="uid://cgnl3nntv4w2m" path="res://scenes/collectable.tscn" id="4_cac1b"]
-[ext_resource type="Script" path="res://game_manager.gd" id="5_3e2h2"]
-[ext_resource type="PackedScene" uid="uid://dbhcqar3n4jf0" path="res://scenes/Checkpoint End.tscn" id="6_7rxo4"]
+[ext_resource type="Texture2D" uid="uid://datpbxsleh3sj" path="res://assets/background/Blue.png" id="1_m8og2"]
+[ext_resource type="Texture2D" uid="uid://cy3w42kv5spv4" path="res://assets/terrain/Terrain (16x16).png" id="2_pihxu"]
+[ext_resource type="PackedScene" uid="uid://2dfbfx6ljex4" path="res://scenes/objects/main_character.tscn" id="3_ow7sa"]
+[ext_resource type="Script" path="res://scenes/objects/game_manager.gd" id="4_al2ig"]
+[ext_resource type="PackedScene" uid="uid://cgnl3nntv4w2m" path="res://scenes/objects/collectable.tscn" id="5_q1egy"]
+[ext_resource type="PackedScene" uid="uid://dbhcqar3n4jf0" path="res://scenes/objects/Checkpoint End.tscn" id="6_2nay1"]
+[ext_resource type="Texture2D" uid="uid://dsi5h50wkv85g" path="res://assets/character/Jump (32x32).png" id="7_oy0ip"]
+[ext_resource type="PackedScene" uid="uid://cotkba44qav2g" path="res://scenes/objects/enemy.tscn" id="8_txsjn"]
+[ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="8_xi27e"]
+[ext_resource type="Script" path="res://scenes/objects/fall_area.gd" id="9_e4umv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b8mhg"]
-texture = ExtResource("2_ihvr4")
+texture = ExtResource("2_pihxu")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -455,13 +459,15 @@ texture = ExtResource("2_ihvr4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_b8mhg")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bm5t8"]
+
 [node name="Node" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 offset_right = 2364.0
 offset_bottom = 652.0
-texture = ExtResource("1_mrisx")
+texture = ExtResource("1_m8og2")
 stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -469,9 +475,9 @@ texture_filter = 1
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_tuwyj")
 format = 2
-layer_0/tile_data = PackedInt32Array(327680, 458752, 1, 327681, 524288, 1, 393216, 458752, 1, 393217, 524288, 1, 458752, 458752, 1, 458753, 524288, 1, 524288, 458752, 1, 524289, 524288, 1, 589824, 458752, 1, 589825, 524288, 1, 655360, 458752, 1, 655361, 524288, 1, 720896, 458752, 1, 720897, 524288, 1, 786432, 458752, 1, 786433, 524288, 1, 851968, 458752, 0, 851969, 458752, 0, 851970, 458752, 0, 851971, 458752, 0, 851972, 458752, 0, 851973, 458752, 0, 851974, 458752, 0, 851975, 458752, 0, 851976, 458752, 0, 851980, 458752, 0, 851981, 458752, 0, 851982, 458752, 0, 851977, 458752, 0, 851978, 458752, 0, 851979, 458752, 0, 851983, 458752, 0, 851984, 458752, 0, 851985, 458752, 0, 851986, 458752, 0, 851987, 458752, 0, 851988, 458752, 0, 851989, 458752, 0, 851990, 458752, 0, 851991, 458752, 0, 262144, 458752, 0, 262145, 524288, 0, 786441, 393216, 0, 786442, 458752, 0, 786443, 524288, 0, 720911, 393216, 0, 720912, 458752, 0, 720913, 524288, 0, 786447, 393216, 1, 786448, 458752, 1, 786449, 524288, 1, 65535, 458752, 1, 131071, 458752, 1, 196607, 458752, 1, 262143, 458752, 1, 327679, 458752, 1, 393215, 458752, 1, 458751, 458752, 1, 524287, 458752, 1, 589823, 458752, 1, 655359, 458752, 1, 720895, 458752, 1, 786431, 458752, 1, 851967, 458752, 1, 917503, 458752, 1, 983039, 458752, 1, 917504, 458752, 1, 917505, 458752, 1, 917506, 458752, 1, 917507, 458752, 1, 917508, 458752, 1, 917509, 458752, 1, 917510, 458752, 1, 917511, 458752, 1, 917512, 458752, 1, 917513, 458752, 1, 917514, 458752, 1, 917515, 458752, 1, 917516, 458752, 1, 917517, 458752, 1, 917518, 458752, 1, 917519, 458752, 1, 917520, 458752, 1, 917521, 458752, 1, 917522, 458752, 1, 917523, 458752, 1, 917524, 458752, 1, 917525, 458752, 1, 917526, 458752, 1, 917527, 458752, 1, 917528, 458752, 1, -65512, 458752, 1, -65513, 458752, 1, -65514, 458752, 1, -65515, 458752, 1, -65516, 458752, 1, -65517, 458752, 1, -65518, 458752, 1, -65519, 458752, 1, -65520, 458752, 1, -65521, 458752, 1, -65522, 458752, 1, -65523, 458752, 1, -65524, 458752, 1, -65525, 458752, 1, -65526, 458752, 1, -65527, 458752, 1, -65528, 458752, 1, -65529, 458752, 1, -65530, 458752, 1, -65531, 458752, 1, -65532, 458752, 1, -65533, 458752, 1, -65534, 458752, 1, -65535, 458752, 1, -65536, 458752, 1, -1, 458752, 1, 851992, 458752, 0, 851993, 458752, 0, 851994, 458752, 0, 851995, 458752, 0, 851996, 458752, 0, 851997, 458752, 0, 851998, 458752, 0, 851999, 458752, 0, 852000, 458752, 0, 852001, 458752, 0, 852002, 458752, 0, 852003, 458752, 0, 852004, 458752, 0, 852005, 458752, 0, 852006, 458752, 0, 852007, 458752, 0, 852008, 458752, 0, 852009, 458752, 0, 852010, 458752, 0, 852011, 458752, 0, 852012, 458752, 0, 852013, 458752, 0, 852014, 458752, 0, 852015, 458752, 0, -65511, 458752, 1, -65510, 458752, 1, -65509, 458752, 1, -65508, 458752, 1, -65507, 458752, 1, -65506, 458752, 1, -65505, 458752, 1, -65504, 458752, 1, -65503, 458752, 1, -65502, 458752, 1, -65501, 458752, 1, -65500, 458752, 1, -65499, 458752, 1, -65498, 458752, 1, -65497, 458752, 1, -65496, 458752, 1, -65495, 458752, 1, -65494, 458752, 1, -65493, 458752, 1, -65492, 458752, 1, -65491, 458752, 1, -65490, 458752, 1, -65489, 458752, 1, -65488, 458752, 1, -65487, 458752, 1, 49, 458752, 1, 65585, 458752, 1, 131121, 458752, 1, 196657, 458752, 1, 262193, 458752, 1, 327729, 458752, 1, 393265, 458752, 1, 458801, 458752, 1, 524337, 458752, 1, 589873, 458752, 1, 655409, 458752, 1, 720945, 458752, 1, 786481, 458752, 1, 852017, 458752, 1, 852016, 458752, 0)
+layer_0/tile_data = PackedInt32Array(327680, 458752, 1, 327681, 524288, 1, 393216, 458752, 1, 393217, 524288, 1, 458752, 458752, 1, 458753, 524288, 1, 524288, 458752, 1, 524289, 524288, 1, 589824, 458752, 1, 589825, 524288, 1, 655360, 458752, 1, 655361, 524288, 1, 720896, 458752, 1, 720897, 524288, 1, 786432, 458752, 1, 786433, 524288, 1, 851968, 458752, 0, 851969, 458752, 0, 851970, 458752, 0, 851971, 458752, 0, 851972, 458752, 0, 851973, 458752, 0, 851974, 458752, 0, 851975, 458752, 0, 851976, 458752, 0, 851980, 458752, 0, 851981, 458752, 0, 851982, 458752, 0, 851977, 458752, 0, 851978, 458752, 0, 851979, 458752, 0, 851983, 458752, 0, 851984, 458752, 0, 851985, 458752, 0, 851986, 458752, 0, 851987, 458752, 0, 851988, 458752, 0, 851989, 458752, 0, 851990, 458752, 0, 851991, 458752, 0, 262144, 458752, 0, 262145, 524288, 0, 786441, 393216, 0, 786442, 458752, 0, 786443, 524288, 0, 720911, 393216, 0, 720912, 458752, 0, 720913, 524288, 0, 786447, 393216, 1, 786448, 458752, 1, 786449, 524288, 1, 65535, 458752, 1, 131071, 458752, 1, 196607, 458752, 1, 262143, 458752, 1, 327679, 458752, 1, 393215, 458752, 1, 458751, 458752, 1, 524287, 458752, 1, 589823, 458752, 1, 655359, 458752, 1, 720895, 458752, 1, 786431, 458752, 1, 851967, 458752, 1, 917503, 458752, 1, 983039, 458752, 1, 917504, 458752, 1, 917505, 458752, 1, 917506, 458752, 1, 917507, 458752, 1, 917508, 458752, 1, 917509, 458752, 1, 917510, 458752, 1, 917511, 458752, 1, 917512, 458752, 1, 917513, 458752, 1, 917514, 458752, 1, 917515, 458752, 1, 917516, 458752, 1, 917517, 458752, 1, 917518, 458752, 1, 917519, 458752, 1, 917520, 458752, 1, 917521, 458752, 1, 917522, 458752, 1, 917523, 458752, 1, 917524, 458752, 1, 917525, 458752, 1, 917526, 458752, 1, 917527, 458752, 1, 917528, 458752, 1, -65512, 458752, 1, -65513, 458752, 1, -65514, 458752, 1, -65515, 458752, 1, -65516, 458752, 1, -65517, 458752, 1, -65518, 458752, 1, -65519, 458752, 1, -65520, 458752, 1, -65521, 458752, 1, -65522, 458752, 1, -65523, 458752, 1, -65524, 458752, 1, -65525, 458752, 1, -65526, 458752, 1, -65527, 458752, 1, -65528, 458752, 1, -65529, 458752, 1, -65530, 458752, 1, -65531, 458752, 1, -65532, 458752, 1, -65533, 458752, 1, -65534, 458752, 1, -65535, 458752, 1, -65536, 458752, 1, -1, 458752, 1, 851992, 458752, 0, 851993, 458752, 0, 851994, 458752, 0, 851999, 458752, 0, 852000, 458752, 0, 852001, 458752, 0, 852002, 458752, 0, 852003, 458752, 0, 852004, 458752, 0, 852005, 458752, 0, 852006, 458752, 0, 852007, 524288, 0, 852011, 393216, 0, 852012, 458752, 0, 852013, 458752, 0, 852014, 458752, 0, 852015, 458752, 0, -65511, 458752, 1, -65510, 458752, 1, -65509, 458752, 1, -65508, 458752, 1, -65507, 458752, 1, -65506, 458752, 1, -65505, 458752, 1, -65504, 458752, 1, -65503, 458752, 1, -65502, 458752, 1, -65501, 458752, 1, -65500, 458752, 1, -65499, 458752, 1, -65498, 458752, 1, -65497, 458752, 1, -65496, 458752, 1, -65495, 458752, 1, -65494, 458752, 1, -65493, 458752, 1, -65492, 458752, 1, -65491, 458752, 1, -65490, 458752, 1, -65489, 458752, 1, -65488, 458752, 1, -65487, 458752, 1, 49, 458752, 1, 65585, 458752, 1, 131121, 458752, 1, 196657, 458752, 1, 262193, 458752, 1, 327729, 458752, 1, 393265, 458752, 1, 458801, 458752, 1, 524337, 458752, 1, 589873, 458752, 1, 655409, 458752, 1, 720945, 458752, 1, 786481, 458752, 1, 852017, 458752, 1, 852016, 458752, 0, 851995, 524288, 0, 851998, 393216, 0)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_kxfkc")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_ow7sa")]
 position = Vector2(616, 310)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -480,22 +486,23 @@ scale = Vector2(0.333333, 0.333333)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
-script = ExtResource("5_3e2h2")
+script = ExtResource("4_al2ig")
+hearts = [NodePath("../CanvasLayer/Live/HBoxContainer/Live"), NodePath("../CanvasLayer/Live/HBoxContainer/Live2"), NodePath("../CanvasLayer/Live/HBoxContainer/Live3")]
 
 [node name="Collectable Group" type="Node" parent="."]
 
-[node name="Collectable" parent="Collectable Group" instance=ExtResource("4_cac1b")]
+[node name="Collectable" parent="Collectable Group" instance=ExtResource("5_q1egy")]
 position = Vector2(501, 534)
 
-[node name="Collectable2" parent="Collectable Group" instance=ExtResource("4_cac1b")]
+[node name="Collectable2" parent="Collectable Group" instance=ExtResource("5_q1egy")]
 position = Vector2(787, 489)
 
-[node name="Collectable3" parent="Collectable Group" instance=ExtResource("4_cac1b")]
+[node name="Collectable3" parent="Collectable Group" instance=ExtResource("5_q1egy")]
 position = Vector2(34, 141)
 
-[node name="Checkpoint Finish" parent="." instance=ExtResource("6_7rxo4")]
+[node name="Checkpoint Finish" parent="." instance=ExtResource("6_2nay1")]
 position = Vector2(2225, 516)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -518,3 +525,102 @@ theme_override_font_sizes/font_size = 30
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Live" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -488.0
+offset_top = 13.0
+offset_right = -64.0
+offset_bottom = 99.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Live"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 424.0
+offset_bottom = 86.0
+alignment = 1
+
+[node name="Live" type="TextureRect" parent="CanvasLayer/Live/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_oy0ip")
+expand_mode = 2
+
+[node name="Live2" type="TextureRect" parent="CanvasLayer/Live/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_oy0ip")
+expand_mode = 2
+
+[node name="Live3" type="TextureRect" parent="CanvasLayer/Live/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_oy0ip")
+expand_mode = 2
+
+[node name="Pause" type="Node" parent="CanvasLayer"]
+script = ExtResource("8_xi27e")
+
+[node name="PausePanel" type="Panel" parent="CanvasLayer/Pause"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GamePaused" type="Label" parent="CanvasLayer/Pause/PausePanel"]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 166.0
+offset_right = 798.0
+offset_bottom = 404.0
+theme_override_font_sizes/font_size = 50
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause/PausePanel"]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 319.0
+offset_right = 749.0
+offset_bottom = 412.0
+theme_override_constants/separation = 24
+
+[node name="Resume" type="Button" parent="CanvasLayer/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Resume"
+
+[node name="Go to main menu" type="Button" parent="CanvasLayer/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Go to main menu"
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="RigidBody2D" parent="Enemy" instance=ExtResource("8_txsjn")]
+position = Vector2(1006, 469)
+
+[node name="RigidBody2D2" parent="Enemy" instance=ExtResource("8_txsjn")]
+position = Vector2(899, 469)
+
+[node name="RigidBody2D3" parent="Enemy" instance=ExtResource("8_txsjn")]
+position = Vector2(1106, 468)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("9_e4umv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1684, 727)
+shape = SubResource("WorldBoundaryShape2D_bm5t8")
+
+[connection signal="button_down" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_button_down"]
+[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Go to main menu" to="CanvasLayer/Pause" method="_on_go_to_main_menu_pressed"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
